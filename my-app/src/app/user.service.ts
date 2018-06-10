@@ -19,15 +19,18 @@ export class UserService {
   
   //method to return the user list through a service
   getUsers():Observable<User[]> {
-    this.messageService.add('UserService: fetched users');
+    //this.messageService.add('UserService: fetched users');
     //return of (USERS);
     return this.http.get<User[]>(this.userUrl).pipe(tap(User => this.log('fetched users')),catchError(this.handleError('getUsers', [])));
   }
 
-  //method to return the user through a service
+  //method to return a user through a service
   getUserById(userId: number): Observable<User> {
-    const url='${this.userUrl}/${userId}';
-    return this.http.get<User>(url).pipe(tap(_ => this.log(`fetched user id=${userId}`)),catchError(this.handleError<User>('get Hero userId=${userId}')));
+    const url = `${this.userUrl}/${userId}`;
+    return this.http.get<User>(url).pipe(
+      tap(_ => this.log(`fetched hero id=${userId}`)),
+      catchError(this.handleError<User>(`getHero id=${userId}`))
+    );
   }
 
   //method to update the user through a service

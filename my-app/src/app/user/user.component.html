@@ -7,6 +7,7 @@
     </tr>
     <tr *ngFor="let user of users" (click)="onSelect(user)">
     <td>{{user.userId}}</td>
+    <td><a routerLink="/detail/{{user.userId}}">{{user.name}}</a></td>
     <td>{{user.name}}</td>
     <td>{{user.email}}</td>
   </tr>
@@ -14,6 +15,7 @@
 </div>
 
 <hr>
-<div>User Detail component
+<!-- <div>User Detail component
   <app-user-detail [user]="selectedUser"></app-user-detail>
-</div>
+</div> -->
+

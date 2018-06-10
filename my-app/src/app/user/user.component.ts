@@ -10,7 +10,7 @@ import { UserService } from '../user.service'
 export class UserComponent implements OnInit {
   users:User[];
 
-  selectedUser:User;
+  //selectedUser:User;
   //users = USERS;
   constructor(private userService:UserService) { }
 
@@ -19,9 +19,9 @@ export class UserComponent implements OnInit {
     this.userService.getUsers().subscribe(users => this.users=users);
   }
 
-  onSelect(user:User):void {
-    this.selectedUser=user;
-  }
+  // onSelect(user:User):void {
+  //   this.selectedUser=user;
+  // }
 
   ngOnInit() {
     this.getUsers();
