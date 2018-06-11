@@ -39,6 +39,15 @@ export class UserService {
     return this.http.put<User>(this.userUrl,user,httpOptions);
   }
 
+  searchUser(term: string):Observable<User[]> {
+    if(!term.trim()) {
+      return of ([]);
+    }
+    return this.http.get<User[]>(`${this.userUrl}/?name=${term}`)
+    .pipe(tap(_ => this.log(`found users matching "${term}"`))
+    ,catchError(this.handleError<User[]>('SearchUser',[])));
+  }
+
   private log(message: string):void {
     this.messageService.add('UserService: '+message)
   }

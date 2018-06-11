@@ -8,13 +8,15 @@ import { UserComponent } from './user/user.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import { UserSearchComponent } from './user-search/user-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     UserDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    UserSearchComponent
   ],
   imports: [
     BrowserModule,
